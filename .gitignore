@@ -1,0 +1,3 @@
+#this will help to not include the code of file when pushing into the github
+node_modules/
+.env
