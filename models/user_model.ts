@@ -33,4 +33,4 @@ const userSchema = new mongoose.Schema(
 );
 
 const userModel = mongoose.model("users", userSchema);
-module.exports = userModel; //it export the file so that it can be used in another file
+export default userModel; //it export the file so that it can be used in another file

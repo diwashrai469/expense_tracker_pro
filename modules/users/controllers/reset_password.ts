@@ -1,8 +1,9 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt"); //to encript password
-const emailManager = require("../../../managers/emailManager");
+import mongoose from "mongoose";
+import bcrypt from "bcrypt"; //to encript password
+import emailManager from "../../../managers/emailManager";
 
-const resetPassword = async (req, res) => {
+
+const resetPassword = async (req:any, res:any) => {
   const userModel = mongoose.model("users");
   const { email, new_password, reset_code } = req.body;
 
@@ -32,11 +33,11 @@ const resetPassword = async (req, res) => {
     }
   );
 
-  await emailManager(email,"your password is reset sucessfully!")
+  await emailManager(email,"your password is reset sucessfully!", "hello")
 
   res.status(200).json({
     status: "sucess",
     message: "Password is updated sucessfully!",
   });
 };
-module.exports = resetPassword;
+export default resetPassword;

@@ -1,10 +1,11 @@
-const express = require("express");
-const register = require("./controllers/register");
-const login = require("./controllers/login");
-const userDashBoards = require("./controllers/userDashboard");
-const auth = require("../../middleware/auth");
-const forgetPassword = require("./controllers/forget_passowrd");
-const resetPassword = require("./controllers/reset_password");
+import express from "express";
+import register from "./controllers/register";
+import login from "./controllers/login";
+import forgetPassword from "./controllers/forget_passowrd";
+import resetPassword from "./controllers/reset_password";
+import auth from "../../middleware/auth";
+import userDashBoards from "./controllers/userDashboard";
+
 const userRoute = express.Router();
 
 //routes..
@@ -20,4 +21,4 @@ userRoute.use(auth); //this acts as a middle ware for validation
 
 userRoute.get("/dashboard", userDashBoards);
 
-module.exports = userRoute;
+export default userRoute;

@@ -1,17 +1,21 @@
 require("express-async-errors");
 
-const express = require("express");
-const cors = require("cors"); //fro deployment
-const errorHandler = require("./handler/errorHandler");
-const mongoose = require("mongoose");
-const userRoute = require("./modules/users/users.routes");
-const transactionRoutes = require("./modules/trasactions/transaction.routes");
+import express from "express";
+import cors from "cors"; //fro deployment
+
+import mongoose from "mongoose";
+import transactionRoutes from "./modules/trasactions/transaction.routes";
+import errorHandler from "./handler/errorHandler";
+import userRoute from "./modules/users/users.routes";
 
 const app = express();
 app.use(cors());
 
 require("dotenv").config();
 app.use(express.json());
+
+if (!process.env.mongo_connection)
+  throw Error("No MongoDB connection string provided!");
 
 mongoose
   .connect(process.env.mongo_connection, {})
@@ -30,7 +34,7 @@ require("./models/user_model");
 require("./models/transaction_model");
 
 //end of all routes
-app.all("*", (req, res, next) => {
+app.all("*", (req: any, res: any, next: any) => {
   //if type wrong url then this will triggred.
   res.status(404).json({
     status: "failed",

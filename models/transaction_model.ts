@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 //schema
 
@@ -29,4 +29,4 @@ const trascationSchema = new mongoose.Schema(
 );
 
 const trascationModel = mongoose.model("transaction", trascationSchema);
-module.exports = trascationModel; //it export the file so that it can be used in another file
+export default trascationModel; //it export the file so that it can be used in another file

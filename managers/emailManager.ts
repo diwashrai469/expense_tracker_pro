@@ -1,7 +1,8 @@
-const nodemailer = require("nodemailer");
+import { createTransport } from "nodemailer";
 
-const emailManager = async (to, text, subject) => {
-  var transport = nodemailer.createTransport({
+
+const emailManager = async (to:any, text:string, subject:string) => {
+  var transport = createTransport({
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth: {
@@ -18,4 +19,4 @@ const emailManager = async (to, text, subject) => {
     subject: subject,
   });
 };
-module.exports = emailManager;
+export default emailManager;

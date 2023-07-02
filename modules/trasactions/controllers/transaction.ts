@@ -1,8 +1,6 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const userModel = require("../../../models/user_model");
+import mongoose from "mongoose";
 
-const allTrasactions = async (req, res) => {
+const allTrasactions = async (req: any, res: any) => {
   const trascationModel = mongoose.model("transaction");
 
   const trasactions = await trascationModel.find({
@@ -15,4 +13,4 @@ const allTrasactions = async (req, res) => {
     data: trasactions,
   });
 };
-module.exports = allTrasactions;
+export default allTrasactions;

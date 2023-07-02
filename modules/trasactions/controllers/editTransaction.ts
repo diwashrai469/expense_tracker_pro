@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
+import mongoose from "mongoose";
+import validator from "validator";
 
-const editTransaction = async (req, res) => {
+const editTransaction = async (req:any, res:any) => {
   const transactionsModel = mongoose.model("transaction");
 
   const { transaction_id, remarks, amount, transaction_type } = req.body;
@@ -34,4 +34,4 @@ const editTransaction = async (req, res) => {
     status: "edited sucessfully!",
   });
 };
-module.exports = editTransaction;
+export default editTransaction;

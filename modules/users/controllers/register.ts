@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt"); //to encript password
-const jwtManager = require("../../../managers/jwtManager");
-const emailManager = require("../../../managers/emailManager");
+import mongoose from "mongoose";
+import bcrypt from "bcrypt"; //to encript password
+import emailManager from "../../../managers/emailManager";
+import jwtManager from "../../../managers/jwtManager";
 
-const register = async (req, res) => {
+const register = async (req: any, res: any) => {
   const userModel = mongoose.model("users");
 
   const { email, password, confirm_password, full_name, balance } = req.body;
@@ -46,4 +46,4 @@ const register = async (req, res) => {
     acessToken: acessToken,
   });
 };
-module.exports = register;
+export default register;

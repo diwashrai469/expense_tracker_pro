@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
-const emailManager = require("../../../managers/emailManager");
-const forgetPassword = async (req, res) => {
+import mongoose from "mongoose";
+import emailManager from "../../../managers/emailManager";
+const forgetPassword = async (req:any, res:any) => {
   const userModel = mongoose.model("users");
 
   const { email } = req.body;
@@ -39,4 +39,4 @@ const forgetPassword = async (req, res) => {
     status: "Reset code sent to email sucessfully!",
   });
 };
-module.exports = forgetPassword;
+export default forgetPassword;

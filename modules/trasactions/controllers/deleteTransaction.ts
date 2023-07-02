@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const userModel = require("../../../models/user_model");
+import mongoose from "mongoose";
+import validator from "validator";
+import userModel from "../../../models/user_model";
 
-const deleteTransaction = async (req, res) => {
+const deleteTransaction = async (req:any, res:any) => {
   const transactionsModel = mongoose.model("transaction");
 
   const { transaction_id } = req.params;
@@ -53,4 +53,4 @@ const deleteTransaction = async (req, res) => {
     status: "Deleted sucessfully!",
   });
 };
-module.exports = deleteTransaction;
+export default deleteTransaction;

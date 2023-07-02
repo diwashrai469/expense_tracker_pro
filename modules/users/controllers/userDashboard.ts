@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const userDashBoards = async (req, res) => {
+const userDashBoards = async (req:any, res:any) => {
   const userModel = mongoose.model("users");
   const trascationModel = mongoose.model("transaction");
 
@@ -23,4 +23,4 @@ const userDashBoards = async (req, res) => {
     transaction: transaction,
   });
 };
-module.exports = userDashBoards;
+export default userDashBoards;
